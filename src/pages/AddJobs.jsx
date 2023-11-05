@@ -1,6 +1,11 @@
-// import Swal from "sweetalert2";
+import { useContext } from "react";
+import Swal from "sweetalert2";
+import { AuthContext } from "../providers/AuthProvider";
+import axios from "axios";
 
 const AddJobs = () => {
+
+    const { user } = useContext(AuthContext);
 
     const handleAddJobs = e => {
         e.preventDefault();
@@ -15,25 +20,27 @@ const AddJobs = () => {
         const newJob = { title, email, category, minPrice, maxPrice, deadline, description };
         console.log(newJob);
 
-        // fetch('/jobs', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(newProduct)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         console.log(data);
-        //         if (data.insertedId) {
-        //             Swal.fire({
-        //                 title: 'Success!',
-        //                 text: 'Product Added Successfully',
-        //                 icon: 'success',
-        //                 confirmButtonText: 'Cool'
-        //             })
-        //         }
-        //     })
+        axios.post('http://localhost:5000/job', newJob)
+            .then(res => {
+                console.log(res.data);
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Product Added Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                Swal.fire({
+                    title: 'Error',
+                    text: 'An error occurred while adding the job',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                });
+            });
     }
 
 
@@ -56,7 +63,7 @@ const AddJobs = () => {
                             <span className="label-text">Email</span>
                         </label>
                         <label className="">
-                            <input type="text" name="email" placeholder="Email" className="input input-bordered w-full" />
+                            <input defaultValue={user.email} disabled type="text" name="email" placeholder="Email" className="input input-bordered w-full" />
                         </label>
                     </div>
 
@@ -114,11 +121,11 @@ const AddJobs = () => {
                             <span className="label-text">Description</span>
                         </label>
                         <label>
-                            <input type="textarea" name="description" placeholder="Description" className="input input-bordered w-full" />
+                            <textarea type="text" name="description" placeholder="Description" className="input input-bordered w-full" />
                         </label>
                     </div>
                 </div>
-                <input type="submit" value="Add Product" className="btn text-white hover:text-gray-800 btn-block bg-main" />
+                <input type="submit" value="Add Job" className="btn text-white hover:text-gray-800 btn-block bg-main" />
 
             </form>
         </div>
