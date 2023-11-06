@@ -5,6 +5,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import AddJobs from "../pages/AddJobs";
 import PrivateRoutes from "./PrivateRoutes";
+import MyJobs from "../pages/MyJobs";
 
 const router = createBrowserRouter([
     {
@@ -13,19 +14,23 @@ const router = createBrowserRouter([
         children: [
             {
               path: '/',
-              element: <Home></Home>,
+              element: <Home></Home>
             },
             {
-              path: '/login',
-              element: <Login></Login>,
+              path: 'login',
+              element: <Login></Login>
             },
             {
-              path: '/register',
-              element: <Register></Register>,
+              path: 'register',
+              element: <Register></Register>
             },
             {
-              path: '/addjob',
-              element: <PrivateRoutes><AddJobs></AddJobs></PrivateRoutes>,
+              path: 'addjob',
+              element: <PrivateRoutes><AddJobs></AddJobs></PrivateRoutes>
+            },
+            {
+              path: 'myjobs',
+              element: <PrivateRoutes><MyJobs></MyJobs></PrivateRoutes>
             },
           ],
     },

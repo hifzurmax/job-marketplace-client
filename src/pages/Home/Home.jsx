@@ -1,42 +1,34 @@
-import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 import Banner from "./Banner";
+import WebDevelopment from '../../jobs/WebDevelopment';
+import DigitalMarketing from '../../jobs/DigitalMarketing';
+import GraphicsDesign from '../../jobs/GraphicsDesign';
 
 const Home = () => {
+
     return (
         <div>
             <Banner></Banner>
-            <Tabs>
-                <TabList className='flex gap-6 border justify-around'>
-                    <Tab className='border'>WEB DEVELOPMENT</Tab>
-                    <Tab className='border'>DIGITAL MARKETING</Tab>
-                    <Tab className='border'>GRAPHICS DESIGN</Tab>
-                </TabList>
+            <div>
+                <Tabs className="my-20 max-w-6xl mx-auto">
+                    <TabList className="flex justify-center gap-4 cursor-pointer rounded-lg shadow-lg pt-4 bg-main text-white mx-auto max-w-4xl font-semibold">
+                        <Tab className="rounded-md px-6 py-4">WEB DEVELOPMENT</Tab>
+                        <Tab className="rounded-md px-6 py-4">DIGITAL MARKETING</Tab>
+                        <Tab className="rounded-md px-6 py-4">GRAPHICS DESIGN</Tab>
+                    </TabList>
 
-                <TabPanel>
-                    <p>
-                        <b>Mario</b> is a fictional character in the Mario video
-                        game franchise, owned by Nintendo and created by Japanese video game designer
-                        Shigeru Miyamoto. Serving as the mascot and the eponymous protagonist
-                    </p>
-                </TabPanel>
-                <TabPanel>
-                    <p>
-                        <b>Luigi</b> 
-                        released by Nintendo. Created by prominent game designer Shigeru Miyamoto, Luigi is portrayed
-                       
-                    </p>
-                    
-                </TabPanel>
-                <TabPanel>
-                    <p>
-                        <b>Princess Peach</b> 
-                        is a character inMario franchise. Originally created by Shigeru Miyamoto,
-                       
-                    </p>
-                </TabPanel>
-                
-             
-            </Tabs>
+                    <TabPanel>
+                        <WebDevelopment></WebDevelopment>
+                    </TabPanel>
+                    <TabPanel>
+                        <DigitalMarketing></DigitalMarketing>
+                    </TabPanel>
+                    <TabPanel>
+                        <GraphicsDesign></GraphicsDesign>
+                    </TabPanel>
+                </Tabs>
+            </div>
         </div>
     );
 };
