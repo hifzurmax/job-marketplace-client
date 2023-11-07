@@ -1,6 +1,7 @@
 import { FaCalendarAlt, FaMoneyCheckAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-const MyJobsRow = ({ singleJob, handleDelete, handleUpdate }) => {
+const MyJobsRow = ({ singleJob, handleDelete }) => {
     const { _id, title, description, maxPrice, minPrice, deadline, category } = singleJob;
 
 
@@ -23,7 +24,7 @@ const MyJobsRow = ({ singleJob, handleDelete, handleUpdate }) => {
                         <p className="text-[#74788d]">Price Range: ${maxPrice} - ${minPrice}</p>| <div className="badge rounded-md bg-[rgba(4,133,101,.15)] text-[#048565]">{category}</div>
                 </div>
             </td>
-            <td><button onClick={() => handleUpdate(_id)} className="btn btn-xs">Update</button></td>
+            <td><Link to={`/myjobs/${_id}`}><button className="btn btn-xs">Update</button></Link></td>
             <th>
                 <button onClick={() => handleDelete(_id)} className="btn btn-xs">Delete</button>
             </th>

@@ -6,6 +6,7 @@ import Register from "../pages/Register";
 import AddJobs from "../pages/AddJobs";
 import PrivateRoutes from "./PrivateRoutes";
 import MyJobs from "../pages/MyJobs";
+import UpdateJob from "../pages/UpdateJob";
 
 const router = createBrowserRouter([
     {
@@ -31,6 +32,11 @@ const router = createBrowserRouter([
             {
               path: 'myjobs',
               element: <PrivateRoutes><MyJobs></MyJobs></PrivateRoutes>
+            },
+            {
+              path: 'myjobs/:id',
+              element: <PrivateRoutes><UpdateJob></UpdateJob></PrivateRoutes>,
+              loader: ({params}) => fetch(`http://localhost:5000/job/${params.id}`)
             }
           ],
     },
