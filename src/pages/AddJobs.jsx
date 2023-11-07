@@ -4,6 +4,7 @@ import { AuthContext } from "../providers/AuthProvider";
 import axios from "axios";
 import ReactDatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css';
+import { FaGreaterThan } from "react-icons/fa";
 
 
 const AddJobs = () => {
@@ -50,8 +51,13 @@ const AddJobs = () => {
 
 
     return (
-        <div className="bg-[#F4F8F9] p-24">
-            <h2 className="text-3xl text-center mb-5 font-extrabold">Add a Job</h2>
+        <div className=" max-w-6xl mx-auto mb-16">
+            <div className="text-white curve h-56 mb-20">
+                <h2 className="text-center text-3xl pt-8 font-semibold">Add Job</h2>
+                <div className="flex justify-center mt-4 text-lg font-bold gap-2 items-center">
+                    <h2>Home</h2><FaGreaterThan></FaGreaterThan> <h2>Profile</h2> <FaGreaterThan></FaGreaterThan><h2>Add Job</h2>
+                </div>
+            </div>
             <form onSubmit={handleAddJobs}>
                 {/* 1st row */}
                 <div className="md:flex mb-8">
@@ -143,7 +149,9 @@ const AddJobs = () => {
                         </label>
                     </div>
                 </div>
-                <input type="submit" value="Add Job" className="btn text-white hover:text-gray-800 btn-block bg-main" />
+                <div className="flex justify-center pb-10">
+                    <input type="submit" value="Add Job" className="btn text-white w-40 hover:text-gray-800 content-center bg-main" />
+                </div>
 
             </form>
         </div>

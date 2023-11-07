@@ -14,7 +14,7 @@ const Home = () => {
     const [graphicsCategory, setGraphicsCategory] = useState([]);
 
     return (
-        <div>
+        <div className='font-poppins'>
             <Banner></Banner>
 
             <div className='max-w-4xl mt-20 mx-auto text-center'>

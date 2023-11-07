@@ -3,3 +3,39 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+.bottom-carved::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -8px; /* Adjust the value to control the depth of the carving */
+    height: 8px; /* Adjust the value to control the carving height */
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.5)); /* You can adjust the gradient to control the appearance */
+    z-index: -1;
+  }
+
+  .curve {
+    color: white;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 3rem 2rem;
+    width: 100%;
+    z-index: 2;
+    
+    &::before {
+      content: '';
+      display: block;
+      background: #00AE79;
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      border-radius: 150vw;
+      width: 300vw;
+      height: 300vw;
+      z-index: -1;
+    }
+  }
+  

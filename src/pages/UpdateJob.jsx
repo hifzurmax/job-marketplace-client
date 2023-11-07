@@ -4,6 +4,7 @@ import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { FaGreaterThan } from "react-icons/fa";
 
 const UpdateJob = () => {
 
@@ -53,8 +54,13 @@ const UpdateJob = () => {
     }
 
     return (
-        <div className="bg-[#F4F8F9] p-24">
-            <h2 className="text-3xl text-center mb-5 font-extrabold">Update Job: {title}</h2>
+        <div className="pb-24 max-w-6xl mx-auto">
+            <div className="text-white curve h-56 mb-20">
+                <h2 className="text-center text-3xl pt-8 font-semibold">Update Job: {title}</h2>
+                <div className="flex justify-center mt-4 text-lg font-bold gap-2 items-center">
+                    <h2>Home</h2><FaGreaterThan></FaGreaterThan> <h2>Profile</h2> <FaGreaterThan></FaGreaterThan><h2>Update Job</h2>
+                </div>
+            </div>
             <form onSubmit={handleUpdateJobs}>
                 {/* 1st row */}
                 <div className="md:flex mb-8">
@@ -146,7 +152,9 @@ const UpdateJob = () => {
                         </label>
                     </div>
                 </div>
-                <input type="submit" value="Update Job" className="btn text-white hover:text-gray-800 btn-block bg-main" />
+                <div className="flex justify-center">
+                    <input type="submit" value="Update Job" className="btn text-white w-40 hover:text-gray-800 content-center bg-main" />
+                </div>
 
             </form>
         </div>

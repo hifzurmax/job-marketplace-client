@@ -3,6 +3,8 @@ import { AuthContext } from "../providers/AuthProvider";
 import axios from "axios";
 import MyJobsRow from "./MyJobsRow";
 import Swal from "sweetalert2";
+import '../index.css'
+import { FaGreaterThan } from "react-icons/fa";
 
 
 const MyJobs = () => {
@@ -67,21 +69,28 @@ const MyJobs = () => {
 
 
     return (
-        <div className="overflow-x-auto max-w-6xl mx-auto my-16">
-            <h2 className="text-center text-lg font-semibold">Total Posted: {myJobs.length}</h2>
-            <table className="table">
+        <div className="overflow-x-auto max-w-6xl font-poppins mx-auto mb-16">
+            <div className="text-white curve h-56">
+                <h2 className="text-center text-3xl pt-8 font-semibold">My Total Jobs: {myJobs.length}</h2>
+                <div className="flex justify-center mt-4 text-lg font-bold gap-2 items-center">
+                    <h2>Home</h2><FaGreaterThan></FaGreaterThan> <h2>Profile</h2> <FaGreaterThan></FaGreaterThan><h2> My Jobs</h2>
+                </div>
+
+            </div>
+
+            <table className="table mt-16">
                 {/* head */}
-               
+
                 <tbody>
 
                     {
-                        myJobs.map(singleJob => <MyJobsRow 
+                        myJobs.map(singleJob => <MyJobsRow
                             key={singleJob._id}
                             singleJob={singleJob}
                             handleDelete={handleDelete}
                             handleUpdate={handleUpdate}
-                            >
-                            </MyJobsRow>)
+                        >
+                        </MyJobsRow>)
                     }
 
                 </tbody>
