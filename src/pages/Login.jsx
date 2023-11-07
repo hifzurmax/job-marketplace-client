@@ -34,7 +34,7 @@ const Login = () => {
     }
     return (
         <>
-            <div className="hero mb-16 max-w-6xl mx-auto min-h-screen bg-second">
+            <div className="hero mb-16 max-w-6xl mx-auto min-h-screen">
                 <div className="hero-content flex-col">
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold">Login Your Account</h1>

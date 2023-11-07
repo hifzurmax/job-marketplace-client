@@ -3,16 +3,61 @@ import { FaCalendarAlt, FaGreaterThan, FaMoneyCheckAlt } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import ReactDatePicker from "react-datepicker";
+import Swal from "sweetalert2";
+import axios from "axios";
 
 const JobDetails = () => {
+
+    const handleBid = e => {
+        e.preventDefault();
+        const form = e.target;
+       
+        const bidPrice = form.price.value;
+        const emailBuyer = form.buyeremail.value;
+        const emailBidder = form.bidderemail.value;
+        const deadlineBid = form.deadline.value;
+        const bid = { 
+            jobTitle: title,
+            bidPrice, 
+            emailBuyer, 
+            emailBidder, 
+            deadlineBid,
+            Jobid: _id,
+
+         };
+        console.log(bid);
+
+        axios.post('http://localhost:5000/bid', bid)
+            .then(res => {
+                console.log(res.data);
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Successfully Bidded',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                Swal.fire({
+                    title: 'Error',
+                    text: 'An error occurred while adding the job',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                });
+            });
+    }
 
     const [startDate, setStartDate] = useState(new Date());
     const { user } = useContext(AuthContext)
     console.log(user);
     const job = useLoaderData();
-    const { _id, title, email, description, maxPrice, minPrice, deadline, category, image } = job;
+    const { _id, title, email, description, maxPrice, minPrice, deadline } = job;
+    // const { _id, title, email, description, maxPrice, minPrice, deadline, category, image } = job;
 
-    
+
     console.log('job mail', email);
     return (
 
@@ -50,7 +95,7 @@ const JobDetails = () => {
 
 
                 <div className="mb-16">
-                    <form onSubmit={'h'}>
+                    <form onSubmit={handleBid}>
                         {/* 1st row */}
                         <div className="md:flex gap-4 mb-8">
                             <div className="form-control md:w-1/2">
@@ -86,7 +131,7 @@ const JobDetails = () => {
                                     <span className="label-text">Buyer Email</span>
                                 </label>
                                 <label className="">
-                                    <input defaultValue={email} disabled type="text" name="email" placeholder="Email" className="input input-bordered w-full" />
+                                    <input defaultValue={email} disabled type="text" name="buyeremail" placeholder="Email" className="input input-bordered w-full" />
                                 </label>
                             </div>
 
@@ -95,7 +140,7 @@ const JobDetails = () => {
                                     <span className="label-text">Your Email</span>
                                 </label>
                                 <label className="">
-                                    <input defaultValue={user.email} disabled type="text" name="email" placeholder="Email" className="input input-bordered w-full" />
+                                    <input defaultValue={user.email} disabled type="text" name="bidderemail" placeholder="Email" className="input input-bordered w-full" />
                                 </label>
                             </div>
 
@@ -105,9 +150,9 @@ const JobDetails = () => {
 
                         <div className="flex pb-10">
                             {
-                                user.email === email ? <input type="submit" value="BID NOW" className="btn text-white w-40 hover:text-gray-800 content-center bg-main" disabled /> 
-                                :
-                                <input type="submit" value="BID NOW" className="btn text-white w-40 hover:text-gray-800 content-center bg-main" /> 
+                                user.email === email ? <input type="submit" value="BID NOW" className="btn text-white w-40 hover:text-gray-800 content-center bg-main" disabled />
+                                    :
+                                    <input type="submit" value="BID NOW" className="btn text-white w-40 hover:text-gray-800 content-center bg-main" />
                             }
                         </div>
 

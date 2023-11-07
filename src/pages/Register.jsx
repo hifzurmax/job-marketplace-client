@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { updateProfile } from "firebase/auth";
+import goo from '../assets/gg.png'
 
 
 
@@ -74,7 +75,7 @@ const Register = () => {
         .catch(error => console.error(error))
     }
     return (
-        <div className="min-h-screen mb-16 max-w-6xl mx-auto bg-second w-full">
+        <div className="min-h-screen mb-16 max-w-6xl mx-auto w-full">
             <div className="hero-content flex-col mx-auto py-20">
                 <div className="text-center">
                     <h1 className="text-5xl font-poppins font-bold">Create Your Account</h1>
@@ -113,7 +114,7 @@ const Register = () => {
 
                     <div className="flex justify-center gap-3 items-center">
                         <p className="font-bold text-lg">Signin With</p>
-                        <button onClick={handleGoogleLogin} className="btn bg-white shadow hover:bg-blue-600 text-main hover:text-white"> Google</button>
+                        <button onClick={handleGoogleLogin} className="btn bg-white border-main hover:bg-main px-16 border hover:shadow-md text-main hover:text-white"><img className="h-5 w-5" src={goo} alt="" /> Google</button>
                     </div>
 
                     <h2 className="text-center mt-4 font-semibold">Already have an account? <Link className="text-main font-bold" to="/login">Login</Link></h2>

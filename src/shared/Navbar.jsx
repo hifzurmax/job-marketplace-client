@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { NavLink } from "react-router-dom";
+import { FaUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
     const { user, signOutUser } = useContext(AuthContext);
@@ -51,31 +52,34 @@ const Navbar = () => {
                     {navLinks}
                 </ul>
             </div>
-            <div className="">
+            <div className="dropdown dropdown-end">
                 {
                     user ?
-                        <>
+                        <div className="flex items-center gap-4">
+                            <div>
+                                <h2 className="text-base font-bold text-second">Hi, {user.displayName}</h2>
+                            </div>
                             <div className="dropdown">
                                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                     <div className="w-10 rounded-full">
                                         <img src={user?.photoURL} />
                                     </div>
                                 </label>
-                                <ul tabIndex={0} className="menu menu-sm dropdown-content z-[1] shadow bg-base-100 rounded-box w-52">
-                                    <li>
-                                        <a>
-                                            {user.displayName}
-                                        </a>
-                                    </li>
+                                <ul tabIndex={0} className="menu text-sm font-bold text-second capitalize dropdown-content z-[1] shadow bg-base-100 rounded-box w-52">
+
+                                    <li><NavLink to="/mybids">My Bids</NavLink></li>
                                     <li><NavLink to="/myjobs">My Jobs</NavLink></li>
                                     <li><a onClick={handleLogout}>Logout</a></li>
                                 </ul>
                             </div>
-                        </>
-                        :
-                        <div>
-                            <NavLink to="/login">Login</NavLink>
                         </div>
+                        :
+                        <button className="btn btn-outline bg-main text-white hover:bg-second">
+                            <FaUserCircle></FaUserCircle>
+                            <NavLink to="/login">Login</NavLink>
+                        </button>
+
+
                 }
             </div>
         </div>
