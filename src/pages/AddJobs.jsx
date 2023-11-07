@@ -1,9 +1,13 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../providers/AuthProvider";
 import axios from "axios";
+import ReactDatePicker from "react-datepicker";
+import 'react-datepicker/dist/react-datepicker.css';
+
 
 const AddJobs = () => {
+    const [startDate, setStartDate] = useState(new Date());
 
     const { user } = useContext(AuthContext);
 
@@ -17,7 +21,8 @@ const AddJobs = () => {
         const maxPrice = form.maxprice.value;
         const deadline = form.deadline.value;
         const description = form.description.value;
-        const newJob = { title, email, category, minPrice, maxPrice, deadline, description };
+        const image = form.image.value;
+        const newJob = { title, email, category, minPrice, maxPrice, deadline, description, image };
         console.log(newJob);
 
         axios.post('http://localhost:5000/job', newJob)
@@ -50,7 +55,7 @@ const AddJobs = () => {
             <form onSubmit={handleAddJobs}>
                 {/* 1st row */}
                 <div className="md:flex mb-8">
-                    <div className="form-control md:w-1/2">
+                    <div className="form-control md:w-1/3">
                         <label className="label">
                             <span className="label-text">Job Title</span>
                         </label>
@@ -58,12 +63,20 @@ const AddJobs = () => {
                             <input type="text" name="title" placeholder="Name" className="input input-bordered w-full" />
                         </label>
                     </div>
-                    <div className="form-control md:w-1/2 md:ml-4">
+                    <div className="form-control md:w-1/3 md:ml-4">
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
                         <label className="">
                             <input defaultValue={user.email} disabled type="text" name="email" placeholder="Email" className="input input-bordered w-full" />
+                        </label>
+                    </div>
+                    <div className="form-control md:w-1/3 md:ml-4">
+                        <label className="label">
+                            <span className="label-text">Image</span>
+                        </label>
+                        <label className="">
+                            <input type="text" name="image" placeholder="Add Photo URL" className="input input-bordered w-full" />
                         </label>
                     </div>
 
@@ -76,7 +89,12 @@ const AddJobs = () => {
                             <span className="label-text">Deadline</span>
                         </label>
                         <label>
-                            <input type="date" name="deadline" id="" />
+                            <ReactDatePicker
+                                className="input input-bordered"
+                                selected={startDate}
+                                onChange={(date) => setStartDate(date)}
+                                name="deadline"
+                            />
                         </label>
                     </div>
 
