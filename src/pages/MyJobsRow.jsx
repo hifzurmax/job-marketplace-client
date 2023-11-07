@@ -10,7 +10,7 @@ const MyJobsRow = ({ singleJob, handleDelete }) => {
             <td className="flex gap-4 items-center">
                 <img className="w-14 h-14" src="https://preview.pichforest.com/jobvia/layouts/assets/images/featured-job/img-01.png" alt="Movie" />
                 <div>
-                    <h3 className="text-lg font-semibold text-second hover:text-main"> {title}</h3>
+                    <h3 className="text-base font-semibold text-second hover:text-main"> {title}</h3>
                     <div className="flex gap-2 m-1 items-center">
 
                     </div>
