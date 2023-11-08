@@ -2,8 +2,6 @@
 
 This MERN (MongoDB, Express, React, Node.js) stack web application is designed to serve as a job marketplace similar to online marketplaces. Users can post and bid on job listings in various categories, making it a versatile platform for job seekers and employers.
 
-![App Screenshot](<Add an image or screenshot here if you have one>)
-
 ## Live Demo
 
 Check out the live version of the app [here](https://taskhub-7bbe0.web.app).
@@ -54,6 +52,6 @@ To run the project locally, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
+   git clone <https://github.com/Porgramming-Hero-web-course/b8a11-client-side-hifzurmax.git>
    cd job-marketplace-app
 
