@@ -32,6 +32,26 @@ const Navbar = () => {
                 Add Job
             </NavLink>
         </li>
+        <li className="mr-10 font-bold">
+            <h2
+                
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "text-main underline" : ""
+                }
+            >
+                About Us
+            </h2>
+        </li>
+        <li className="mr-10 font-bold">
+            <h2
+                
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "text-main underline" : ""
+                }
+            >
+                Contact Us
+            </h2>
+        </li>
     </>
 
     return (

@@ -6,6 +6,7 @@ import WebDevelopment from '../../jobs/WebDevelopment';
 import DigitalMarketing from '../../jobs/DigitalMarketing';
 import GraphicsDesign from '../../jobs/GraphicsDesign';
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
 
@@ -15,6 +16,9 @@ const Home = () => {
 
     return (
         <div className='font-poppins'>
+            <Helmet>
+                <title>TaskHub | Home</title>
+            </Helmet>
             <Banner></Banner>
 
             <div className='max-w-4xl mt-20 mx-auto text-center'>
@@ -24,18 +28,18 @@ const Home = () => {
 
             <div>
                 <Tabs className="my-10 max-w-6xl mx-auto">
-                    <TabList className="flex justify-center gap-4 cursor-pointer rounded-lg shadow-lg pt-4 bg-main react-tabs__tab--selected:text-main text-white mx-auto max-w-4xl font-semibold">
+                    <TabList className="flex justify-center mr-1 ml-1 pr-1 pl-1 gap-2 md:gap-4 cursor-pointer rounded-lg shadow-lg pt-4 text-center bg-main react-tabs__tab--selected:text-main text-white md:max-w-4xl md:mx-auto font-semibold text-sm">
                         <Tab
                             onClick={() => setWebCategory("Web Development")}
-                            className="rounded-md px-6 py-4">WEB DEVELOPMENT</Tab>
+                            className="rounded-md px-2 md:px-6 py-4">WEB DEVELOPMENT</Tab>
 
                         <Tab
                             onClick={() => setMarketingCategory("Digital Marketing")}
-                            className="rounded-md px-6 py-4">DIGITAL MARKETING</Tab>
+                            className="rounded-md px-2 md:px-6 py-4">DIGITAL MARKETING</Tab>
 
                         <Tab
                             onClick={() => setGraphicsCategory('Graphics Design')}
-                            className="rounded-md px-6 py-4">GRAPHICS DESIGN</Tab>
+                            className="rounded-md px-2 md:px-6 py-4">GRAPHICS DESIGN</Tab>
                     </TabList>
 
                     <TabPanel>

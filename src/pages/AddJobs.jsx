@@ -5,6 +5,7 @@ import axios from "axios";
 import ReactDatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css';
 import { FaGreaterThan } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 
 const AddJobs = () => {
@@ -26,7 +27,7 @@ const AddJobs = () => {
         const newJob = { title, email, category, minPrice, maxPrice, deadline, description, image };
         console.log(newJob);
 
-        axios.post('http://localhost:5000/job', newJob)
+        axios.post('https://task-hub-server-ten.vercel.app/job', newJob)
             .then(res => {
                 console.log(res.data);
                 if (res.data.insertedId) {
@@ -52,6 +53,9 @@ const AddJobs = () => {
 
     return (
         <div className=" max-w-6xl mx-auto mb-16">
+            <Helmet>
+                <title>TaskHub | Add Jobs</title>
+            </Helmet>
             <div className="text-white bg-main py-10 rounded-t-lg mb-20">
                 <h2 className="text-center text-3xl font-semibold">Add Job</h2>
                 <div className="flex justify-center mt-4 text-lg font-bold gap-2 items-center">

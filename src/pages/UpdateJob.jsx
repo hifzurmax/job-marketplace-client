@@ -5,6 +5,7 @@ import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { FaGreaterThan } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const UpdateJob = () => {
 
@@ -30,7 +31,7 @@ const UpdateJob = () => {
         const updatedJob = { title, email, category, minPrice, maxPrice, deadline, description, image };
         console.log(updatedJob);
 
-        axios.patch(`http://localhost:5000/update/${_id}`, updatedJob)
+        axios.patch(`https://task-hub-server-ten.vercel.app/update/${_id}`, updatedJob)
             .then(res => {
                 console.log(res.data);
                 if (res.data.modifiedCount) {
@@ -55,6 +56,9 @@ const UpdateJob = () => {
 
     return (
         <div className="pb-24 max-w-6xl mx-auto">
+            <Helmet>
+                <title>TaskHub | Update Jobs</title>
+            </Helmet>
             <div className="text-white bg-main py-10 rounded-t-lg mb-20">
                 <h2 className="text-center text-3xl font-semibold">Update Job: {title}</h2>
                 <div className="flex justify-center mt-4 text-lg font-bold gap-2 items-center">

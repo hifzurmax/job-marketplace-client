@@ -7,7 +7,7 @@ const DigitalMarketing = ({ marketingCategory }) => {
 
   useEffect(() => {
     if (marketingCategory) {
-      axios.get(`http://localhost:5000/jobs/${marketingCategory}`)
+      axios.get(`https://task-hub-server-ten.vercel.app/jobs/${marketingCategory}`)
         .then(res => {
             setMarketingJobs(res.data);
             console.log(res.data);
@@ -20,7 +20,7 @@ const DigitalMarketing = ({ marketingCategory }) => {
 
   return (
     <>
-            <div className="my-20 grid grid-cols-2 gap-4">
+            <div className="my-20 grid md:grid-cols-2 gap-4">
                 {
                     marketingJobs.map(job => <JobCard 
                         key={job._id}

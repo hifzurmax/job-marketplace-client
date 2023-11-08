@@ -8,7 +8,7 @@ const GraphicsDesign = ({ graphicsCategory }) => {
 
     useEffect(() => {
         if (graphicsCategory) {
-            axios.get(`http://localhost:5000/jobs/${graphicsCategory}`)
+            axios.get(`https://task-hub-server-ten.vercel.app/jobs/${graphicsCategory}`)
                 .then(res => {
                     setGraphicsJobs(res.data);
                 })
@@ -20,7 +20,7 @@ const GraphicsDesign = ({ graphicsCategory }) => {
 
     return (
         <>
-            <div className="my-20 grid grid-cols-2 gap-4">
+            <div className="my-20 grid md:grid-cols-2 gap-4">
                 {
                     graphicsJobs.map(job => <JobCard key={job._id} job={job}></JobCard>)
                 }

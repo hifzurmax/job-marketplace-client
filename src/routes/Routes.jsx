@@ -40,12 +40,12 @@ const router = createBrowserRouter([
             {
               path: 'myjobs/:id',
               element: <PrivateRoutes><UpdateJob></UpdateJob></PrivateRoutes>,
-              loader: ({params}) => fetch(`http://localhost:5000/job/${params.id}`)
+              loader: ({params}) => fetch(`https://task-hub-server-ten.vercel.app/job/${params.id}`)
             },
             {
               path: 'jobdetails/:id',
               element: <PrivateRoutes><JobDetails></JobDetails></PrivateRoutes>,
-              loader: ({params}) => fetch(`http://localhost:5000/jobdetails/${params.id}`)
+              loader: ({params}) => fetch(`https://task-hub-server-ten.vercel.app/jobdetails/${params.id}`)
             },
             {
               path: 'mybids',

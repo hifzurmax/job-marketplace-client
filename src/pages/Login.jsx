@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
     const location = useLocation();
@@ -35,6 +36,9 @@ const Login = () => {
     return (
         <>
             <div className="hero mb-16 max-w-6xl mx-auto min-h-screen">
+            <Helmet>
+                <title>TaskHub | Login</title>
+            </Helmet>
                 <div className="hero-content flex-col">
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold">Login Your Account</h1>

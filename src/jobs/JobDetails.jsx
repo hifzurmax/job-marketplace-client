@@ -5,6 +5,7 @@ import { AuthContext } from "../providers/AuthProvider";
 import ReactDatePicker from "react-datepicker";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 const JobDetails = () => {
 
@@ -27,7 +28,7 @@ const JobDetails = () => {
          };
         console.log(bid);
 
-        axios.post('http://localhost:5000/bid', bid)
+        axios.post('https://task-hub-server-ten.vercel.app/bid', bid)
             .then(res => {
                 console.log(res.data);
                 if (res.data.insertedId) {
@@ -62,6 +63,9 @@ const JobDetails = () => {
     return (
 
         <div className="font-poppins max-w-6xl mb-24 mx-auto">
+            <Helmet>
+                <title>TaskHub | {title}</title>
+            </Helmet>
             <div className="text-white bg-main py-10 rounded-t-lg mb-20">
                 <h2 className="text-center text-3xl font-semibold">Job Title: {title}</h2>
                 <div className="flex justify-center mt-4 text-lg font-bold gap-2 items-center">

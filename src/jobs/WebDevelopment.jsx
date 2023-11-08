@@ -10,7 +10,7 @@ const WebDevelopment = ({ webCategory }) => {
         const fetchData = async () => {
             if (webCategory) {
                 try {
-                    const response = await axios.get(`http://localhost:5000/jobs/${webCategory}`);
+                    const response = await axios.get(`https://task-hub-server-ten.vercel.app/jobs/${webCategory}`);
                     setWebJobs(response.data);
                 } catch (error) {
                     console.error(error);
@@ -23,7 +23,7 @@ const WebDevelopment = ({ webCategory }) => {
 
     return (
         <>
-            <div className="my-20 grid grid-cols-2 gap-4">
+            <div className="my-20 grid md:grid-cols-2 gap-4">
                 {
                     webJobs.map(job => <JobCard 
                         key={job._id}

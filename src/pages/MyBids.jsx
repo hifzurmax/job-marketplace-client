@@ -3,11 +3,12 @@ import MybidsRow from "./MybidsRow";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../providers/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const MyBids = () => {
     const { user } = useContext(AuthContext)
     const [myBids, setMyBids] = useState([]);
-    const url = `http://localhost:5000/mybids?email=${user.email}`;
+    const url = `https://task-hub-server-ten.vercel.app/mybids?email=${user.email}`;
     
     useEffect(() => {
         const fetchData = async () => {
@@ -26,6 +27,9 @@ const MyBids = () => {
 
     return (
         <div className="overflow-x-auto max-w-6xl font-poppins mx-auto mb-16">
+            <Helmet>
+                <title>TaskHub | My Bids</title>
+            </Helmet>
             <div className="text-white  bg-main py-10 rounded-t-lg">
                 <h2 className="text-center text-3xl font-semibold">My Total Bids: {myBids.length} </h2>
                 <div className="flex justify-center mt-4 text-lg font-bold gap-2 items-center">

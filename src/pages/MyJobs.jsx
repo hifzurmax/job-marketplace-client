@@ -5,6 +5,7 @@ import MyJobsRow from "./MyJobsRow";
 import Swal from "sweetalert2";
 import '../index.css'
 import { FaGreaterThan } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 
 const MyJobs = () => {
@@ -12,7 +13,7 @@ const MyJobs = () => {
     const { user } = useContext(AuthContext);
     const [myJobs, setMyJobs] = useState([]);
 
-    const url = `http://localhost:5000/myjobs?email=${user?.email}`;
+    const url = `https://task-hub-server-ten.vercel.app/myjobs?email=${user?.email}`;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -42,7 +43,7 @@ const MyJobs = () => {
         })
             .then(result => {
                 if (result.isConfirmed) {
-                    axios.delete(`http://localhost:5000/myjobs/${id}`)
+                    axios.delete(`https://task-hub-server-ten.vercel.app/myjobs/${id}`)
                         .then(res => {
                             if (res.data.deletedCount > 0) {
                                 Swal.fire(
@@ -70,6 +71,9 @@ const MyJobs = () => {
 
     return (
         <div className="overflow-x-auto max-w-6xl font-poppins mx-auto mb-16">
+            <Helmet>
+                <title>TaskHub | My Jobs</title>
+            </Helmet>
             <div className="text-white  bg-main py-10 rounded-t-lg">
                 <h2 className="text-center text-3xl font-semibold">My Total Jobs: {myJobs.length}</h2>
                 <div className="flex justify-center mt-4 text-lg font-bold gap-2 items-center">

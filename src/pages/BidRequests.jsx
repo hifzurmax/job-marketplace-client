@@ -3,11 +3,12 @@ import { FaGreaterThan } from "react-icons/fa";
 import { AuthContext } from "../providers/AuthProvider";
 import axios from "axios";
 import BidRequestsRow from "./BidRequestsRow";
+import { Helmet } from "react-helmet-async";
 
 const BidRequests = () => {
     const [bidRequests, setbidRequests] = useState([]);
     const { user } = useContext(AuthContext)
-    const url = `http://localhost:5000/bidrequests?email=${user.email}`
+    const url = `https://task-hub-server-ten.vercel.app/bidrequests?email=${user.email}`
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -26,6 +27,9 @@ const BidRequests = () => {
 
     return (
         <div className="overflow-x-auto max-w-6xl font-poppins mx-auto mb-16">
+            <Helmet>
+                <title>TaskHub | Bid Requests</title>
+            </Helmet>
             <div className="text-white  bg-main py-10 rounded-t-lg">
                 <h2 className="text-center text-3xl font-semibold">Total Bid Requests: {bidRequests.length} </h2>
                 <div className="flex justify-center mt-4 text-lg font-bold gap-2 items-center">
