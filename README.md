@@ -49,9 +49,7 @@ Check out the live version of the app [here](https://taskhub-7bbe0.web.app).
 
 To run the project locally, follow these steps:
 
-1. Clone the repository:
-
+1. 
    ```bash
    git clone <https://github.com/Porgramming-Hero-web-course/b8a11-client-side-hifzurmax.git>
-   cd job-marketplace-app
 

@@ -7,6 +7,7 @@ import DigitalMarketing from '../../jobs/DigitalMarketing';
 import GraphicsDesign from '../../jobs/GraphicsDesign';
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import About from './About';
 
 const Home = () => {
 
@@ -53,6 +54,9 @@ const Home = () => {
                     </TabPanel>
                 </Tabs>
             </div>
+
+            {/* How it works section */}
+            <About></About>
         </div>
     );
 };

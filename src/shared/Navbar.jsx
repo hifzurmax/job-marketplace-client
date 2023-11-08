@@ -56,7 +56,7 @@ const Navbar = () => {
     </>
 
     return (
-        <div className="navbar flex justify-between border shadow-inner max-w-6xl mx-auto">
+        <div className="navbar flex justify-between border shadow-inner max-w-7xl mx-auto">
             <div className="">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">

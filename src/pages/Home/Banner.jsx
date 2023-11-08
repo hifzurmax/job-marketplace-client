@@ -2,7 +2,7 @@ import banner from '../../assets/home-3.jpg'
 import { FaSistrix } from "react-icons/fa6";
 const Banner = () => {
     return (
-        <div className="hero max-w-6xl mx-auto min-h-screen font-poppins" style={{ backgroundImage: `url(${banner})` }}>
+        <div className="hero max-w-7xl mx-auto min-h-screen font-poppins" style={{ backgroundImage: `url(${banner})` }}>
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
                 <div className='max-w-3xl space-y-6'>
