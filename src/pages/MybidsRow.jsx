@@ -2,9 +2,9 @@ import { FaCalendarAlt, FaMoneyCheckAlt } from "react-icons/fa";
 // import { Link } from "react-router-dom";
 
 const MybidsRow = ({ singleBid }) => {
-    const { jobTitle, emailBidder, deadlineBid } = singleBid;
+    const { _id, jobTitle, emailBidder, deadlineBid } = singleBid;
     return (
-        <tr className="h-28 border rounded-lg hover:border-y-[#02af74] hover:text-main hover:-translate-y-1 hover: duration-300">
+        <tr className="h-28 border rounded-lg hover:border-y-[#02af74] hover:text-main hover:-translate-y-1 hover: duration-300" key={_id}>
             <td>
                     <h3 className="text-base font-semibold text-second hover:text-main"> {jobTitle}</h3> 
             </td>

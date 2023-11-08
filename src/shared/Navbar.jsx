@@ -69,6 +69,7 @@ const Navbar = () => {
 
                                     <li><NavLink to="/mybids">My Bids</NavLink></li>
                                     <li><NavLink to="/myjobs">My Jobs</NavLink></li>
+                                    <li><NavLink to="/requests">Bid Requests</NavLink></li>
                                     <li><a onClick={handleLogout}>Logout</a></li>
                                 </ul>
                             </div>
