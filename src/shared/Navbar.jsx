@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { NavLink } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
+import logo from '../assets/header-logo-dark.svg'
 
 const Navbar = () => {
     const { user, signOutUser } = useContext(AuthContext);
@@ -55,7 +56,7 @@ const Navbar = () => {
     </>
 
     return (
-        <div className="navbar flex justify-between bg-base-100 max-w-6xl mx-auto">
+        <div className="navbar flex justify-between border shadow-inner max-w-6xl mx-auto">
             <div className="">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -65,7 +66,7 @@ const Navbar = () => {
                         {navLinks}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <img src={logo} alt="" />
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
