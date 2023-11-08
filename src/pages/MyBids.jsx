@@ -12,7 +12,7 @@ const MyBids = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(url);
+                const response = await axios.get(url, {withCredentials: true});
                 const data = response.data;
                 setMyBids(data);
             } catch (error) {

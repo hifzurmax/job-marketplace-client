@@ -10,6 +10,7 @@ import UpdateJob from "../pages/UpdateJob";
 import JobDetails from "../jobs/JobDetails";
 import MyBids from "../pages/MyBids";
 import BidRequests from "../pages/BidRequests";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
     {
@@ -53,9 +54,14 @@ const router = createBrowserRouter([
             {
               path: 'requests',
               element: <PrivateRoutes><BidRequests></BidRequests></PrivateRoutes>
-            }
+            },
           ],
+          
     },
+    {
+      path: '*', 
+      element:  <ErrorPage></ErrorPage>
+    }
 ]);
 
 export default router;
