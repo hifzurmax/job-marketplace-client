@@ -23,7 +23,30 @@ const BidRequests = () => {
         fetchData();
     }, [url]);
 
-
+    const handleAccept = id => {
+        axios.patch(`https://task-hub-server-ten.vercel.app/accept/${id}`, {status: 'accept'})
+        .then(res => {
+            const data = res.data;
+            console.log(data);
+            const remaining = bidRequests.filter(bid => bid._id !== id);
+            const updatedStatus = bidRequests.find(bid => bid._id === id);
+            updatedStatus.status = 'accept';
+            const newStatus = [updatedStatus, ...remaining];
+            setbidRequests(newStatus)
+        })
+    }
+    const handleReject = id => {
+        axios.patch(`https://task-hub-server-ten.vercel.app/accept/${id}`, {status: 'reject'})
+        .then(res => {
+            const data = res.data;
+            console.log(data);
+            const remaining = bidRequests.filter(bid => bid._id !== id);
+            const updatedStatus = bidRequests.find(bid => bid._id === id);
+            updatedStatus.status = 'reject';
+            const newStatus = [updatedStatus, ...remaining];
+            setbidRequests(newStatus)
+        })
+    }
 
     return (
         <div className="overflow-x-auto max-w-6xl mt-4 font-poppins mx-auto mb-16">
@@ -33,7 +56,7 @@ const BidRequests = () => {
             <div className="text-white  bg-main py-10 rounded-t-lg">
                 <h2 className="text-center text-3xl font-semibold">Total Bid Requests: {bidRequests.length} </h2>
                 <div className="flex justify-center mt-4 text-lg font-bold gap-2 items-center">
-                    <h2>Home</h2><FaGreaterThan></FaGreaterThan> <h2>Profile</h2> <FaGreaterThan></FaGreaterThan><h2> My Bids</h2>
+                    <h2>Home</h2><FaGreaterThan></FaGreaterThan> <h2>Profile</h2> <FaGreaterThan></FaGreaterThan><h2>Bid Requests</h2>
                 </div>
 
             </div>
@@ -46,6 +69,8 @@ const BidRequests = () => {
                         bidRequests.map(singleBid => <BidRequestsRow
                             key={singleBid._id}
                             singleBid={singleBid}
+                            handleAccept={handleAccept}
+                            handleReject={handleReject}
                         >
                         </BidRequestsRow>)
                     }

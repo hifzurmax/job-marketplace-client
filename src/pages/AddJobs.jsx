@@ -6,6 +6,7 @@ import ReactDatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css';
 import { FaGreaterThan } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
+import { Navigate } from "react-router-dom";
 
 
 const AddJobs = () => {
@@ -37,6 +38,7 @@ const AddJobs = () => {
                         icon: 'success',
                         confirmButtonText: 'Cool'
                     })
+                    return <Navigate to="/myjobs"></Navigate>;
                 }
             })
             .catch((error) => {

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 import logo from '../assets/header-logo-dark.svg'
 
@@ -35,7 +35,7 @@ const Navbar = () => {
         </li>
         <li className="mr-10 font-bold">
             <h2
-                
+
                 className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "text-base font-bold text-second" : "text-base font-bold text-second"
                 }
@@ -45,7 +45,7 @@ const Navbar = () => {
         </li>
         <li className="mr-10 font-bold">
             <h2
-                
+
                 className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "text-base font-bold text-second" : "text-base font-bold text-second"
                 }
@@ -96,10 +96,9 @@ const Navbar = () => {
                             </div>
                         </div>
                         :
-                        <button className="btn btn-outline bg-main text-white hover:bg-second">
-                            <FaUserCircle></FaUserCircle>
-                            <NavLink to="/login">Login</NavLink>
-                        </button>
+                        <Link to='/login'><button className="btn btn-outline bg-main text-white hover:bg-second">
+                            <FaUserCircle></FaUserCircle> Login
+                        </button></Link>
 
 
                 }
