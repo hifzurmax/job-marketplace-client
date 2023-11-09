@@ -111,7 +111,7 @@ const Register = () => {
                             <input type="password" name="password" placeholder="Your Password" className="input input-bordered" required />
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn text-white hover:text-gray-800 btn-block bg-[#F54844]">Register</button>
+                            <button className="btn text-white hover:text-gray-800 btn-block bg-main">Register</button>
                         </div>
                     </form>
                     <p className="text-center text-red-700 text-base mb-6">{regError}</p>

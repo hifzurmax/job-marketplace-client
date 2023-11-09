@@ -52,7 +52,7 @@ const AddJobs = () => {
 
 
     return (
-        <div className=" max-w-6xl mx-auto mb-16">
+        <div className=" max-w-6xl mt-4 mx-auto mb-16">
             <Helmet>
                 <title>TaskHub | Add Jobs</title>
             </Helmet>

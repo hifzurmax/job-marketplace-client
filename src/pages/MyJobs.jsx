@@ -70,7 +70,7 @@ const MyJobs = () => {
 
 
     return (
-        <div className="overflow-x-auto max-w-6xl font-poppins mx-auto mb-16">
+        <div className="overflow-x-auto max-w-6xl mt-4 font-poppins mx-auto mb-16">
             <Helmet>
                 <title>TaskHub | My Jobs</title>
             </Helmet>

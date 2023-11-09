@@ -17,7 +17,7 @@ const Navbar = () => {
             <NavLink
                 to="/"
                 className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "text-main underline" : ""
+                    isPending ? "pending" : isActive ? "text-base font-bold text-second" : "text-base font-bold text-second"
                 }
             >
                 Home
@@ -27,7 +27,7 @@ const Navbar = () => {
             <NavLink
                 to="/addjob"
                 className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "text-main underline" : ""
+                    isPending ? "pending" : isActive ? "text-base font-bold text-second" : "text-base font-bold text-second"
                 }
             >
                 Add Job
@@ -37,7 +37,7 @@ const Navbar = () => {
             <h2
                 
                 className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "text-main underline" : ""
+                    isPending ? "pending" : isActive ? "text-base font-bold text-second" : "text-base font-bold text-second"
                 }
             >
                 About Us
@@ -47,7 +47,7 @@ const Navbar = () => {
             <h2
                 
                 className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "text-main underline" : ""
+                    isPending ? "pending" : isActive ? "text-base font-bold text-second" : "text-base font-bold text-second"
                 }
             >
                 Contact Us
@@ -88,8 +88,8 @@ const Navbar = () => {
                                 </label>
                                 <ul tabIndex={0} className="menu text-sm font-bold text-second capitalize dropdown-content z-[1] shadow bg-base-100 rounded-box w-52">
 
-                                    <li><NavLink to="/mybids">My Bids</NavLink></li>
                                     <li><NavLink to="/myjobs">My Jobs</NavLink></li>
+                                    <li><NavLink to="/mybids">My Bids</NavLink></li>
                                     <li><NavLink to="/requests">Bid Requests</NavLink></li>
                                     <li><a onClick={handleLogout}>Logout</a></li>
                                 </ul>

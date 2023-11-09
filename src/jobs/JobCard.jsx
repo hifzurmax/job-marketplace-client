@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 const WebDevelopmentCard = ({ job }) => {
     const { _id, title, description, maxPrice, minPrice, deadline, category, image } = job;
     return (
-        <div className="border rounded-lg hover:border hover:shadow-lg hover:border-[#02af74] hover:-translate-y-1 hover: duration-300">
+        <div className="border mx-4 rounded-lg hover:border hover:shadow-lg hover:border-[#02af74] hover:-translate-y-1 hover: duration-300">
             <div className="flex">
-                <div className="w-2/12 justify-start mt-6 ml-6">
-                    <img className="w-14 h-14" src={image} alt="Movie" />
+                <div className="w-2/12 justify-start mt-6 ml-6 mr-3">
+                    <img className="w-14 md:h-14" src={image} alt="Movie" />
                 </div>
                 <div className=" w-10/12 mt-4">
                     <h2 className="card-title text-second">{title}</h2>

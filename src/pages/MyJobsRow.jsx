@@ -2,13 +2,13 @@ import { FaCalendarAlt, FaMoneyCheckAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const MyJobsRow = ({ singleJob, handleDelete }) => {
-    const { _id, title, description, maxPrice, minPrice, deadline, category } = singleJob;
+    const { _id, title, description, maxPrice, minPrice, deadline, category, image } = singleJob;
 
 
     return (
         <tr className="h-28 border rounded-lg hover:border-y-[#02af74] hover:text-main hover:-translate-y-1 hover: duration-300" key={_id}>
             <td className="flex gap-4 items-center">
-                <img className="w-14 h-14" src="https://preview.pichforest.com/jobvia/layouts/assets/images/featured-job/img-01.png" alt="Movie" />
+                <img className="w-14 h-14" src={image} alt="Movie" />
                 <div>
                     <h3 className="text-base font-semibold text-second hover:text-main"> {title}</h3>
                     <div className="flex gap-2 m-1 items-center">

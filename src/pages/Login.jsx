@@ -58,7 +58,7 @@ const Login = () => {
                                 <input type="password" name="password" placeholder="Your Password" className="input input-bordered" required />
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn text-white hover:text-gray-800 btn-block bg-[#F54844]">Login</button>
+                                <button className="btn text-white hover:text-gray-800 btn-block bg-main">Login</button>
                             </div>
                         </form>
                         <h2 className="text-center font-semibold">Dont’t Have An Account?  <Link className="text-main font-bold" to="/register">Register</Link></h2>

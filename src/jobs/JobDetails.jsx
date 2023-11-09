@@ -62,7 +62,7 @@ const JobDetails = () => {
     console.log('job mail', email);
     return (
 
-        <div className="font-poppins max-w-6xl mb-24 mx-auto">
+        <div className="font-poppins max-w-6xl mt-4 mb-24 mx-auto">
             <Helmet>
                 <title>TaskHub | {title}</title>
             </Helmet>
@@ -72,7 +72,7 @@ const JobDetails = () => {
                     <h2>Home</h2><FaGreaterThan></FaGreaterThan> <h2>Pages</h2> <FaGreaterThan></FaGreaterThan><h2>Job Details</h2>
                 </div>
             </div>
-            <div className="grid grid-cols-2">
+            <div className="grid md:grid-cols-2">
 
 
                 <div className="space-y-6 border-r mr-10">
