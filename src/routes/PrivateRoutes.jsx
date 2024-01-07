@@ -12,16 +12,6 @@ const PrivateRoutes = ({children}) => {
         return <div className="flex justify-center items-center h-96"><span className="loading loading-spinner loading-lg"></span></div>
     }
 
-
-    // app.get('/jobs/:category', async (req, res) => {
-    //     const category = req.params.category;
-    //     const query = { category: category };
-    //     const result = await jobsCollection.find(query).toArray();
-    //     res.send(result);
-    // });
-    
-
-
     if(user){
         return children;
     }

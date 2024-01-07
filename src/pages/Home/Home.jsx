@@ -10,11 +10,13 @@ import { Helmet } from 'react-helmet-async';
 import About from './About';
 import Explore from './Explore';
 
+
 const Home = () => {
 
     const [webCategory, setWebCategory] = useState("Web Development");
     const [marketingCategory, setMarketingCategory] = useState([]);
     const [graphicsCategory, setGraphicsCategory] = useState([]);
+
 
     return (
         <div className='font-poppins'>
@@ -33,30 +35,42 @@ const Home = () => {
 
                 <div className='max-w-6xl mx-auto pb-1'>
                     <Tabs className="my-10">
-                        <TabList 
-                        className="flex justify-center mr-1 ml-1 pr-1 pl-1 gap-2 md:gap-4 cursor-pointer rounded-lg shadow-lg pt-1 pb-1 text-center bg-main react-tabs__tab--selected:text-main text-white outline-0 md:max-w-4xl md:mx-auto font-semibold text-sm">
+                        <TabList
+                            className="flex justify-center mr-3 ml-3 pr-1 pl-1 gap-2 md:gap-4 cursor-pointer rounded-lg shadow-lg pt-1 pb-1 text-center bg-main react-tabs__tab--selected:text-main text-white outline-0 md:max-w-2xl md:mx-auto font-semibold text-sm">
                             <Tab
                                 onClick={() => setWebCategory("Web Development")}
-                                className="rounded-md px-2 md:px-6 py-4">WEB DEVELOPMENT</Tab>
-
+                                className="rounded-none custom1 px-2 md:px-6 py-4">
+                                WEB DEVELOPMENT
+                            </Tab>
                             <Tab
                                 onClick={() => setMarketingCategory("Digital Marketing")}
-                                className="rounded-md px-2 md:px-6 py-4">DIGITAL MARKETING</Tab>
+                                className="rounded-md custom1 px-2 md:px-6 py-4">
+                                DIGITAL MARKETING
+                            </Tab>
 
                             <Tab
                                 onClick={() => setGraphicsCategory('Graphics Design')}
-                                className="rounded-md px-2 md:px-6 py-4">GRAPHICS DESIGN</Tab>
+                                className="rounded-md custom1 px-2 md:px-6 py-4">
+                                GRAPHICS DESIGN
+                            </Tab>
                         </TabList>
 
                         <TabPanel>
                             <WebDevelopment webCategory={webCategory}></WebDevelopment>
                         </TabPanel>
+
+
                         <TabPanel>
                             <DigitalMarketing marketingCategory={marketingCategory}></DigitalMarketing>
                         </TabPanel>
+
+
+
                         <TabPanel>
                             <GraphicsDesign graphicsCategory={graphicsCategory}></GraphicsDesign>
                         </TabPanel>
+
+
                     </Tabs>
                 </div>
             </div>

@@ -4,3 +4,37 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
+.custom1 {
+
+    border-color: #fff !important;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.react-tabs__tab--selected {
+    background: #fff;
+    border: none !important;
+    color: #495057;
+    border-radius: 8px 8px 8px 8px !important;
+    color: white;
+}
+
+.react-tabs__tab {
+    cursor: pointer;
+    transition: background-color 0.9s ease;
+    /* Add a transition effect for background-color */
+}
+
+
+
+/* Remove the outside borders of the outside tabs */
+.react-tabs__tab:nth-child(1) {
+    border-left: 0px !important;
+}
+
+.react-tabs__tab:nth-last-child(1) {
+    border-right: 0px !important;
+}
+
+.react-tabs__tab-panel {
+    padding: 0px 10px 20px;
+}

@@ -6,12 +6,12 @@ import ReactDatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css';
 import { FaGreaterThan } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 const AddJobs = () => {
     const [startDate, setStartDate] = useState(new Date());
-
+    const navigate = useNavigate()
     const { user } = useContext(AuthContext);
 
     const handleAddJobs = e => {
@@ -38,7 +38,7 @@ const AddJobs = () => {
                         icon: 'success',
                         confirmButtonText: 'Cool'
                     })
-                    return <Navigate to="/myjobs"></Navigate>;
+                    navigate('/myjobs')
                 }
             })
             .catch((error) => {

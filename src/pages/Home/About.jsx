@@ -4,8 +4,8 @@ import { FaOutdent, FaTags } from 'react-icons/fa';
 const About = () => {
     return (
         <div className="flex flex-col md:flex-row max-w-6xl py-24 gap-4 mx-auto">
-            <div className='space-y-6 md:mr-16'>
-                <div>
+            <div className='space-y-6 mx-4 md:mr-16'>
+                <div className='text-center md:text-left'>
 
                     <h2 className='text-second text-3xl font-bold mb-2'>How It Work</h2>
                     <p className='text-[#74788d]'>Post a job to tell us about your project. We will quickly match you with the right freelancers.</p>

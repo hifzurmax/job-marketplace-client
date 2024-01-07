@@ -7,12 +7,11 @@ const BidRequestsRow = ({ singleBid, handleAccept, handleReject }) => {
 
 
     useEffect(() => {
-        // Load the visibility state from localStorage on component mount
         const savedButtonsVisible = localStorage.getItem(`buttonsVisible_${_id}`);
         if (savedButtonsVisible !== null) {
-          setButtonsVisible(savedButtonsVisible === "true");
+            setButtonsVisible(savedButtonsVisible === "true");
         }
-      }, [_id]);
+    }, [_id]);
 
 
     const handleAcceptClick = () => {
@@ -64,28 +63,21 @@ const BidRequestsRow = ({ singleBid, handleAccept, handleReject }) => {
             <th>
                 {
                     buttonsVisible && (
-                    <>
-                        <button
-                            onClick={() => {
-                                handleAcceptClick(_id);
-                            }}
-                            className="btn btn-sm bg-main text-white hover:text-second"
-                        >
-                            Accept
-                        </button>
-                        <button
-                            onClick={
-                                () => {
-                                    handleRejectClick(_id)
-                                }
-                            }
+                        <>
+                            <button
+                                onClick={() => handleAcceptClick(_id)}
+                                className="btn btn-sm bg-main text-white hover:text-second"
+                            >
+                                Accept
+                            </button>
+                            <button
+                                onClick={() => handleRejectClick(_id)}
+                                className="btn btn-sm ml-2 bg-main text-white hover:text-second">
+                                Reject
+                            </button>
 
-                            className="btn btn-sm ml-2 bg-main text-white hover:text-second">
-                            Reject
-                        </button>
-
-                    </>
-                )}
+                        </>
+                    )}
 
             </th>
         </tr>
